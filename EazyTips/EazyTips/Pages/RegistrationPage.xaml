@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EazyTips.Pages.RegistrationPage">
+    <ContentPage.Content>
+        <AbsoluteLayout Margin="5,0,5,5">
+            <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
+                        Margin="30,0,30,0">
+                <Entry x:Name="SignUpPhone" Placeholder="Phone" ReturnType="Next" Keyboard="Telephone" 
+                       FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
+                       TextColor="Black" MaxLength="10">
+                    <Entry.Behaviors>
+                        <!--<local:NumberValidationBehavior></local:NumberValidationBehavior>-->
+                    </Entry.Behaviors>
+                </Entry>
+                <Entry x:Name="SignUpPassword" ReturnType="Done" Placeholder="Password" IsPassword="True" 
+                       FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
+                       TextColor="Black" />
+                <Entry x:Name="confirmpasswordEntry" ReturnType="Next" IsPassword="True" 
+                       Placeholder="Confirm Password" FontSize="Small" FlexLayout.AlignSelf="Stretch"  
+                       HorizontalOptions="CenterAndExpand"  TextColor="Black" />
+                <Label x:Name="warningLabel" Text="" IsVisible="False" TextColor="Red" FontSize="Small" 
+                       BackgroundColor="Transparent" FlexLayout.AlignSelf="End"/>
+                <Button x:Name="signUp" Clicked="SignupValidation_ButtonClicked" FontSize="Medium" TextColor="White" 
+                        BorderColor="Black" BackgroundColor="#e2a1ed"  CornerRadius="5" 
+                        FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Sign Up"/>
+                <Button TextColor="Black" BackgroundColor="Transparent" Clicked="login_ClickedEvent" 
+                        Text="Login" FontSize="13" FlexLayout.AlignSelf="Start" />
+            </FlexLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

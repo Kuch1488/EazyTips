@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EazyTips.Pages.LoginPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout x:Name="absLayout" Margin="5,0" IsVisible="true">
+                <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
+                            Margin="30,0,30,0">
+                    <Label Text="Login" TextColor="Black" FontSize="Title" FlexLayout.AlignSelf="Center"/>
+                    <Entry x:Name="LoginPhone" ReturnType="Next" Placeholder="Phone" Keyboard="Telephone" 
+                           FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" FontSize="Small" 
+                           TextColor="Black"/>
+                    <Entry x:Name="passwordEntry" ReturnType="Done" IsPassword="True" Placeholder="Password" 
+                           FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
+                           TextColor="Black" />
+                    <Button x:Name="signUp" Clicked="LoginValidation_ButtonClicked" FontSize="Medium" 
+                            TextColor="White" BorderColor="Black" BackgroundColor="#e2a1ed"  
+                            CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" 
+                            Text="Login"/>
+                </FlexLayout>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
