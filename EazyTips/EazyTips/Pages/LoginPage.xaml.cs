@@ -21,7 +21,7 @@ namespace EazyTips.Pages
 
         private async void LoginValidation_ButtonClicked(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(LoginPhone.Text) || !string.IsNullOrEmpty(LoginPassword.Text))
+            if(!string.IsNullOrEmpty(LoginPhone.Text) && !string.IsNullOrEmpty(LoginPassword.Text))
             {
                 await Navigation.PushAsync(new HomePage());
             }

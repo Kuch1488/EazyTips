@@ -16,7 +16,7 @@ namespace EazyTips.Pages
         {
             InitializeComponent();
 
-            NavigationPage.SetHasNavigationBar(this, false);
+            NavigationPage.SetHasNavigationBar(this.Home, false);
         }
     }
 }
