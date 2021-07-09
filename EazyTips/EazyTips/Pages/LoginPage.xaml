@@ -11,7 +11,7 @@
                     <Entry x:Name="LoginPhone" ReturnType="Next" Placeholder="Phone" Keyboard="Telephone" 
                            FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" FontSize="Small" 
                            TextColor="Black"/>
-                    <Entry x:Name="passwordEntry" ReturnType="Done" IsPassword="True" Placeholder="Password" 
+                    <Entry x:Name="LoginPassword" ReturnType="Done" IsPassword="True" Placeholder="Password" 
                            FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
                            TextColor="Black" />
                     <Button x:Name="signUp" Clicked="LoginValidation_ButtonClicked" FontSize="Medium" 

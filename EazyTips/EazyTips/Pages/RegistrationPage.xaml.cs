@@ -15,7 +15,6 @@ namespace EazyTips.Pages
         public RegistrationPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasBackButton(this, false);
 
             FocuseNext();
         }
@@ -33,10 +32,10 @@ namespace EazyTips.Pages
                 confirmpasswordEntry.Text = string.Empty;
                 warningLabel.IsVisible = true;
             }
-            else if(SignUpPhone.Text.Length < 10)
+            else if(SignUpPhone.Text.Length < 11)
             {
                 SignUpPhone.Text = string.Empty;
-                warningLabel.Text = "Enter 10 digit Number";
+                warningLabel.Text = "Enter 11 digit Number";
                 warningLabel.IsVisible = true;
             }
             else
