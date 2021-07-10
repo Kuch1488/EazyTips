@@ -58,7 +58,7 @@ namespace EazyTips.Pages
 
         private static bool isPhoneValid(string Phone)
         {
-            return Regex.Match(Phone, @"^(\+[0-9]{11})$").Success;
+            return Regex.IsMatch(Phone, @"^\d{11}$");
         }
     }
 }

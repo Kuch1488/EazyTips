@@ -23,10 +23,14 @@ namespace EazyTips.Pages
                 {
                     await Navigation.PushAsync(new HomePage());
                 }
+                else
+                {
+                    await DisplayAlert("Enter Data", "Enter correct phone number", "OK");
+                }
             }
             else
             {
-                await DisplayAlert("Enter Data", "Enter User Name and Password Please", "OK");
+                await DisplayAlert("Enter Data", "Enter Phone Number and Password Please", "OK");
             }
         }
 
@@ -37,7 +41,7 @@ namespace EazyTips.Pages
 
         private static bool isPhoneVaild(string Phone)
         {
-            return Regex.Match(Phone, @"^(\+[0-9]{11})$").Success;
+            return Regex.IsMatch(Phone, @"^\d{11}$");
         }
     }
 }
