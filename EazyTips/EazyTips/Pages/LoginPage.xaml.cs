@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,7 +19,10 @@ namespace EazyTips.Pages
         {
             if(!string.IsNullOrEmpty(LoginPhone.Text) && !string.IsNullOrEmpty(LoginPassword.Text))
             {
-                await Navigation.PushAsync(new HomePage());
+                if(isPhoneVaild(LoginPhone.Text.ToString()))
+                {
+                    await Navigation.PushAsync(new HomePage());
+                }
             }
             else
             {
@@ -34,6 +33,11 @@ namespace EazyTips.Pages
         private void FocuseNext()
         {
             LoginPhone.ReturnCommand = new Command(() => LoginPassword.Focus());
+        }
+
+        private static bool isPhoneVaild(string Phone)
+        {
+            return Regex.Match(Phone, @"^(\+[0-9]{11})$").Success;
         }
     }
 }

@@ -10,10 +10,10 @@
                     <Label Text="Login" TextColor="Black" FontSize="Title" FlexLayout.AlignSelf="Center"/>
                     <Entry x:Name="LoginPhone" ReturnType="Next" Placeholder="Phone" Keyboard="Telephone" 
                            FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" FontSize="Small" 
-                           TextColor="Black"/>
+                           TextColor="Black" MaxLength="11"/>
                     <Entry x:Name="LoginPassword" ReturnType="Done" IsPassword="True" Placeholder="Password" 
                            FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
-                           TextColor="Black" />
+                           TextColor="Black" MaxLength="40"/>
                     <Button x:Name="signUp" Clicked="LoginValidation_ButtonClicked" FontSize="Medium" 
                             TextColor="White" BorderColor="Black" BackgroundColor="#e2a1ed"  
                             CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" 

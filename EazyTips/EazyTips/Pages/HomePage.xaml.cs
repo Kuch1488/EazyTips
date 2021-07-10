@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,6 +14,29 @@ namespace EazyTips.Pages
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this.Home, false);
+        }
+
+        private async void Exit_ButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MainPage());
+        }
+
+        private static bool isPhoneValid(string Phone)
+        {
+            return Regex.Match(Phone, @"^(\+[0-9]{11})$").Success;
+        }
+
+        private static bool isEmailValid(string Email)
+        {
+            try
+            {
+                MailAddress mailAddress = new MailAddress(Email);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
     }
 }

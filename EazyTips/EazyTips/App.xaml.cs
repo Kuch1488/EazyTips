@@ -1,7 +1,4 @@
-﻿using EazyTips.Pages;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace EazyTips
 {

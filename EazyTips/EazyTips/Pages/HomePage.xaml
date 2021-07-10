@@ -39,7 +39,7 @@
                            HorizontalOptions="Center"/>
                 </Frame>
                 <Frame BackgroundColor="White">
-                    <Label Text="My data" TextColor="Black" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+                    <Button Text="Exit" Clicked="Exit_ButtonClicked" TextColor="Black" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
                 </Frame>
             </StackLayout>
         </ScrollView>

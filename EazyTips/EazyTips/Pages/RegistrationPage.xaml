@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="EazyTips.Pages.RegistrationPage">
     <ContentPage.Content>
         <AbsoluteLayout Margin="5,0,5,5">
@@ -8,17 +8,13 @@
                         Margin="30,0,30,0">
                 <Entry x:Name="SignUpPhone" Placeholder="Phone" ReturnType="Next" Keyboard="Telephone" 
                        FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
-                       TextColor="Black" MaxLength="11">
-                    <Entry.Behaviors>
-                        <!--<local:NumberValidationBehavior></local:NumberValidationBehavior>-->
-                    </Entry.Behaviors>
-                </Entry>
+                       TextColor="Black" MaxLength="11"/>
                 <Entry x:Name="SignUpPassword" ReturnType="Done" Placeholder="Password" IsPassword="True" 
                        FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
-                       TextColor="Black" />
+                       TextColor="Black" MaxLength="40"/>
                 <Entry x:Name="confirmpasswordEntry" ReturnType="Next" IsPassword="True" 
                        Placeholder="Confirm Password" FontSize="Small" FlexLayout.AlignSelf="Stretch"  
-                       HorizontalOptions="CenterAndExpand"  TextColor="Black" />
+                       HorizontalOptions="CenterAndExpand"  TextColor="Black" MaxLength="40"/>
                 <Label x:Name="warningLabel" Text="" IsVisible="False" TextColor="Red" FontSize="Small" 
                        BackgroundColor="Transparent" FlexLayout.AlignSelf="End"/>
                 <Button x:Name="signUp" Clicked="SignupValidation_ButtonClicked" FontSize="Medium" TextColor="White" 
