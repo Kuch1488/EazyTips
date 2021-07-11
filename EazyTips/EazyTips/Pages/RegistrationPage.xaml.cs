@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EazyTips.Client;
+using System;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -40,6 +41,13 @@ namespace EazyTips.Pages
                 string _password = SignUpPassword.Text;
                 if(isPhoneValid(_phone))
                 {
+                    LoginService service = new LoginService();
+                    bool GetLoginDetails = await service.CheckLoginIfExists(_phone, _password);
+                    if(GetLoginDetails)
+                    {
+                        await DisplayAlert("Registration Failed", " Already have an account", "Ok");
+                    }
+
                     await Navigation.PushAsync(new LoginPage());
                 }
             }
