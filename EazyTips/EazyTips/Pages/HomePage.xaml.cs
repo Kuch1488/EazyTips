@@ -28,7 +28,10 @@ namespace EazyTips.Pages
 
         private static bool isEmailValid(string Email)
         {
-            try
+            Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-
+         9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+            return regex.Match(Email).Success;
+            /*try
             {
                 MailAddress mailAddress = new MailAddress(Email);
                 return true;
@@ -36,7 +39,7 @@ namespace EazyTips.Pages
             catch (FormatException)
             {
                 return false;
-            }
+            }*/
         }
     }
 }
