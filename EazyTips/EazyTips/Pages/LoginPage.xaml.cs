@@ -1,13 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using EazyTips.Repository;
+using EazyTips.Client;
 
 namespace EazyTips.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        private static readonly HttpClient Client = new HttpClient();
+
         public LoginPage()
         {
             InitializeComponent();
@@ -21,7 +27,17 @@ namespace EazyTips.Pages
             {
                 if(isPhoneVaild(LoginPhone.Text.ToString()))
                 {
-                    await Navigation.PushAsync(new HomePage());
+                    LoginService loginService = new LoginService();
+                    bool GetLoginDetails = await loginService.CheckLoginIfExists(LoginPhone.Text.ToString(), LoginPassword.Text);
+
+                    if(GetLoginDetails)
+                    {
+                        await Navigation.PushAsync(new HomePage());
+                    }
+                    else
+                    {
+                        await DisplayAlert("Login failed", "Username or Password is incorrect or not exists", "Ok");
+                    }
                 }
                 else
                 {
