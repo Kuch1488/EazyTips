@@ -1,4 +1,5 @@
 ﻿using EazyTips.Client;
+using EazyTips.Repository;
 using System;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
@@ -39,7 +40,7 @@ namespace EazyTips.Pages
             {
                 string _phone = SignUpPhone.Text.ToString();
                 string _password = SignUpPassword.Text;
-                if(isPhoneValid(_phone))
+                if(User.isPhoneValid(_phone))
                 {
                     LoginService service = new LoginService();
                     bool GetLoginDetails = await service.CheckLoginIfExists(_phone, _password);
@@ -62,11 +63,6 @@ namespace EazyTips.Pages
         {
             SignUpPhone.ReturnCommand = new Command(() => SignUpPassword.Focus());
             SignUpPassword.ReturnCommand = new Command(() => confirmpasswordEntry.Focus());
-        }
-
-        private static bool isPhoneValid(string Phone)
-        {
-            return Regex.IsMatch(Phone, @"^([7]\d{10}$)");
         }
     }
 }

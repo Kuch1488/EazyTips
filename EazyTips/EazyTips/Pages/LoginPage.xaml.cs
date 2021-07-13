@@ -12,8 +12,6 @@ namespace EazyTips.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        private static readonly HttpClient Client = new HttpClient();
-
         public LoginPage()
         {
             InitializeComponent();
@@ -23,41 +21,35 @@ namespace EazyTips.Pages
 
         private async void LoginValidation_ButtonClicked(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(LoginPhone.Text) && !string.IsNullOrEmpty(LoginPassword.Text))
+            if(string.IsNullOrEmpty(LoginPhone.Text) || string.IsNullOrEmpty(LoginPassword.Text))
             {
-                if(isPhoneVaild(LoginPhone.Text.ToString()))
-                {
-                    LoginService loginService = new LoginService();
-                    bool GetLoginDetails = await loginService.CheckLoginIfExists(LoginPhone.Text.ToString(), LoginPassword.Text);
+                await DisplayAlert("Enter Data", "Enter Phone Number and Password", "OK");
+                return;
+            }
+            string _phone = LoginPhone.Text.ToString();
+            if (User.isPhoneValid(_phone))
+            {
+                LoginService loginService = new LoginService();
+                bool GetLoginDetails = await loginService.CheckLoginIfExists(LoginPhone.Text.ToString(), LoginPassword.Text);
 
-                    if(GetLoginDetails)
-                    {
-                        await Navigation.PushAsync(new HomePage());
-                    }
-                    else
-                    {
-                        await DisplayAlert("Login failed", "Phone or Password is incorrect or not exists", "Ok");
-                    }
+                if (GetLoginDetails)
+                {
+                    await Navigation.PushAsync(new HomePage());
                 }
                 else
                 {
-                    await DisplayAlert("Enter Data", "Enter correct phone number", "OK");
+                    await DisplayAlert("Login failed", "Phone or Password is incorrect or not exists", "Ok");
                 }
             }
             else
             {
-                await DisplayAlert("Enter Data", "Enter Phone Number and Password", "OK");
+                await DisplayAlert("Enter Data", "Enter correct phone number", "OK");
             }
         }
 
         private void FocuseNext()
         {
             LoginPhone.ReturnCommand = new Command(() => LoginPassword.Focus());
-        }
-
-        private static bool isPhoneVaild(string Phone)
-        {
-            return Regex.IsMatch(Phone, @"^([7]\d{10}$)");
         }
     }
 }
