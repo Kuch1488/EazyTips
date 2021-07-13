@@ -49,7 +49,12 @@ namespace EazyTips.Pages
                         await DisplayAlert("Registration Failed", " Already have an account", "Ok");
                     }
 
-                    await Navigation.PushAsync(new LoginPage());
+                    RegistrationService registrationService = new RegistrationService();
+                    bool RegistrationSuccess = await registrationService.RegistrationSuccess(_phone, _password);
+                    if(RegistrationSuccess)
+                    {
+                        await Navigation.PushAsync(new LoginPage());
+                    } 
                 }
             }
         }
