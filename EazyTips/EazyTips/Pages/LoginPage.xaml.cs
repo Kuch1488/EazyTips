@@ -36,7 +36,7 @@ namespace EazyTips.Pages
                     }
                     else
                     {
-                        await DisplayAlert("Login failed", "Username or Password is incorrect or not exists", "Ok");
+                        await DisplayAlert("Login failed", "Phone or Password is incorrect or not exists", "Ok");
                     }
                 }
                 else
@@ -46,7 +46,7 @@ namespace EazyTips.Pages
             }
             else
             {
-                await DisplayAlert("Enter Data", "Enter Phone Number and Password Please", "OK");
+                await DisplayAlert("Enter Data", "Enter Phone Number and Password", "OK");
             }
         }
 
@@ -57,7 +57,7 @@ namespace EazyTips.Pages
 
         private static bool isPhoneVaild(string Phone)
         {
-            return Regex.IsMatch(Phone, @"^\d{11}$");
+            return Regex.IsMatch(Phone, @"^([7]\d{10}$)");
         }
     }
 }
