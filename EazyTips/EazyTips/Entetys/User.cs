@@ -7,32 +7,22 @@ namespace EazyTips.Repository
     public class User
     {
         public int Id { get; set; }
-        public string FullName { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public int IsAdmin { get; set; }
+        public string FullName { get; set; }
 
         public static bool isPhoneValid(string Phone)
         {
-            return Regex.IsMatch(Phone, @"^([7]\d{10}$)");
+            return Regex.Match(Phone, @"^([7]\d{10}$)").Success;
         }
 
         public static bool isEmailValid(string Email)
         {
-            Regex regex = new Regex(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.
-                        [0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+            Regex regex = new Regex(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
             return regex.Match(Email).Success;
-            /*try
-            {
-                MailAddress mailAddress = new MailAddress(Email);
-                return true;
-            }
-            catch (FormatException)
-            {
-                return false;
-            }*/
         }
     }
 }

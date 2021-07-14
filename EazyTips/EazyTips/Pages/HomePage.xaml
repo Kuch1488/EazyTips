@@ -9,9 +9,9 @@
     <ContentPage Title="Мой код">
         <StackLayout>
             <Image HorizontalOptions="Center"/>
-            <Label Text="Name" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
-            <zx:ZXingBarcodeImageView IsVisible="true" BarcodeFormat="QR_CODE" BarcodeValue="{Binding QrCode}" 
-                                      HorizontalOptions="Center">
+            <Label x:Name="UserName" Text="Name" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <zx:ZXingBarcodeImageView x:Name="UserQrCode" IsVisible="true" BarcodeFormat="QR_CODE" BarcodeValue="" 
+                                      HorizontalOptions="Center" HeightRequest="150" WidthRequest="150">
                 <zx:ZXingBarcodeImageView.BarcodeOptions>
                     <zxcm:EncodingOptions Width="150" Height="150"/>
                 </zx:ZXingBarcodeImageView.BarcodeOptions>

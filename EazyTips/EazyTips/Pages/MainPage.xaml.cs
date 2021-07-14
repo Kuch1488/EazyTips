@@ -10,7 +10,7 @@ namespace EazyTips
         {
             InitializeComponent();
 
-            NavigationPage.SetHasNavigationBar(this.FirstPage, true);
+            NavigationPage.SetHasNavigationBar(this.FirstPage, false);
         }
 
         private async void LoginButton_Clicked(object sender, EventArgs e)

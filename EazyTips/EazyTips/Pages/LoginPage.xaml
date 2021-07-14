@@ -8,7 +8,7 @@
                 <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                             Margin="30,0,30,0">
                     <Label Text="Login" TextColor="Black" FontSize="Title" FlexLayout.AlignSelf="Center"/>
-                    <Entry x:Name="LoginPhone" ReturnType="Next" Placeholder="Phone" Keyboard="Telephone" 
+                    <Entry x:Name="LoginPhone" Text="7" ReturnType="Next" Placeholder="Phone" Keyboard="Telephone" 
                            FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" FontSize="Small" 
                            TextColor="Black" MaxLength="11"/>
                     <Entry x:Name="LoginPassword" ReturnType="Done" IsPassword="True" Placeholder="Password" 

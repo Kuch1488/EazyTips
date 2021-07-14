@@ -13,7 +13,6 @@ namespace EazyTips.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            ZXing.Net.Mobile.Forms.Android.Platform.Init();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
@@ -21,7 +20,7 @@ namespace EazyTips.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }

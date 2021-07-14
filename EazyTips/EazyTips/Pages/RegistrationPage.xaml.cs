@@ -1,7 +1,6 @@
 ﻿using EazyTips.Client;
 using EazyTips.Repository;
 using System;
-using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,18 +18,18 @@ namespace EazyTips.Pages
 
         private async void SignupValidation_ButtonClicked(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(SignUpPhone.Text) || string.IsNullOrEmpty(SignUpPassword.Text))
+            if (string.IsNullOrEmpty(SignUpPhone.Text) || string.IsNullOrEmpty(SignUpPassword.Text))
             { 
                 await DisplayAlert("Enter Data", "Enter Valid Data", "OK");
             }
-            else if(!string.Equals(SignUpPassword.Text, confirmpasswordEntry.Text)) 
+            else if (!string.Equals(SignUpPassword.Text, confirmpasswordEntry.Text)) 
             {
                 warningLabel.Text = "Enter Same Password";
                 SignUpPassword.Text = string.Empty;
                 confirmpasswordEntry.Text = string.Empty;
                 warningLabel.IsVisible = true;
             }
-            else if(SignUpPhone.Text.Length < 11)
+            else if (SignUpPhone.Text.Length < 11)
             {
                 SignUpPhone.Text = string.Empty;
                 warningLabel.Text = "Enter 11 digit Number";
@@ -40,22 +39,30 @@ namespace EazyTips.Pages
             {
                 string _phone = SignUpPhone.Text.ToString();
                 string _password = SignUpPassword.Text;
-                if(User.isPhoneValid(_phone))
+                if (User.isPhoneValid(_phone))
                 {
-                    LoginService service = new LoginService();
-                    bool GetLoginDetails = await service.CheckLoginIfExists(_phone, _password);
-                    if(GetLoginDetails)
-                    {
-                        await DisplayAlert("Registration Failed", " Already have an account", "Ok");
-                        return;
-                    }
+                    await DisplayAlert("Enter Data", "Enter correct phone number", "OK");
+                    return;
+                }
+                LoginService service = new LoginService();
+                int GetUserId = -1;
+                GetUserId = await service.CheckLoginIfExists(_phone, _password);
+                if (GetUserId == -1)
+                {
+                    await DisplayAlert("Registration Failed", " Already have an account", "OK");
+                    return;
+                }
 
-                    RegistrationService registrationService = new RegistrationService();
-                    bool RegistrationSuccess = await registrationService.RegistrationSuccess(_phone, _password);
-                    if(RegistrationSuccess)
-                    {
-                        await Navigation.PushAsync(new LoginPage());
-                    } 
+                RegistrationService registrationService = new RegistrationService();
+                bool RegistrationSuccess = await registrationService.RegistrationSuccess(_phone, _password);
+                if (RegistrationSuccess)
+                {
+                    await Navigation.PushAsync(new LoginPage());
+                }
+                else
+                {
+                    await DisplayAlert("Registration Failed", "Connection lost", "OK");
+                    return;
                 }
             }
         }
