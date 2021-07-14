@@ -1,4 +1,5 @@
-﻿using EazyTips.Repository;
+﻿using EazyTips.Entetys;
+using EazyTips.Repository;
 using Newtonsoft.Json;
 using System;
 using System.Dynamic;
@@ -64,6 +65,87 @@ namespace EazyTips.RestClient
                 try
                 {
                     return jsonSerializer.Deserialize<User>(textReader);
+                }
+                catch (JsonReaderException)
+                {
+                    throw;
+                }
+            }
+
+            return null;
+        }
+
+        public async Task<Card> GetCard(int UserId)
+        {
+            Url += $"/api/card/{UserId}";
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage respnse = await client.GetAsync(Url);
+
+            if (respnse.Content is object && respnse.Content.Headers.ContentType.MediaType == "application/json")
+            {
+                string contentStream = await respnse.Content.ReadAsStringAsync();
+                StreamReader streamReader = new StreamReader(contentStream);
+                JsonTextReader textReader = new JsonTextReader(streamReader);
+                JsonSerializer jsonSerializer = new JsonSerializer();
+
+                try
+                {
+                    return jsonSerializer.Deserialize<Card>(textReader);
+                }
+                catch (JsonReaderException)
+                {
+                    throw;
+                }
+            }
+
+            return null;
+        }
+
+        public async Task<Marketplace> GetMarketplace(int UserId)
+        {
+            Url += $"/api/marketplace/{UserId}";
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage respnse = await client.GetAsync(Url);
+
+            if (respnse.Content is object && respnse.Content.Headers.ContentType.MediaType == "application/json")
+            {
+                string contentStream = await respnse.Content.ReadAsStringAsync();
+                StreamReader streamReader = new StreamReader(contentStream);
+                JsonTextReader textReader = new JsonTextReader(streamReader);
+                JsonSerializer jsonSerializer = new JsonSerializer();
+
+                try
+                {
+                    return jsonSerializer.Deserialize<Marketplace>(textReader);
+                }
+                catch (JsonReaderException)
+                {
+                    throw;
+                }
+            }
+
+            return null;
+        }
+
+        public async Task<Transaction> GetTransaction(int UserId)
+        {
+            Url += $"/api/transaction/{UserId}";
+            HttpClient client = new HttpClient();
+
+            HttpResponseMessage respnse = await client.GetAsync(Url);
+
+            if (respnse.Content is object && respnse.Content.Headers.ContentType.MediaType == "application/json")
+            {
+                string contentStream = await respnse.Content.ReadAsStringAsync();
+                StreamReader streamReader = new StreamReader(contentStream);
+                JsonTextReader textReader = new JsonTextReader(streamReader);
+                JsonSerializer jsonSerializer = new JsonSerializer();
+
+                try
+                {
+                    return jsonSerializer.Deserialize<Transaction>(textReader);
                 }
                 catch (JsonReaderException)
                 {
