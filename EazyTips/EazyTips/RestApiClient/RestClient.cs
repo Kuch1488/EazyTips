@@ -25,6 +25,7 @@ namespace EazyTips.RestClient
             string jsonData = JsonConvert.SerializeObject(JsonData);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(Url, content);
+
             return response.IsSuccessStatusCode;
         }
 

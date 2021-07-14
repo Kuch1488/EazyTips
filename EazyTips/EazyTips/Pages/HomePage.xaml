@@ -1,14 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EazyTips.Pages.HomePage"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
+            xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+            x:Class="EazyTips.Pages.HomePage"
             x:Name="Home">
   <!--Pages can be added as references or inline-->
     <ContentPage Title="Мой код">
         <StackLayout>
             <Image HorizontalOptions="Center"/>
             <Label Text="Name" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
-            <Image HorizontalOptions="Center"/>
+            <zx:ZXingBarcodeImageView IsVisible="true" BarcodeFormat="QR_CODE" BarcodeValue="{Binding QrCode}" 
+                                      HorizontalOptions="Center">
+                <zx:ZXingBarcodeImageView.BarcodeOptions>
+                    <zxcm:EncodingOptions Width="150" Height="150"/>
+                </zx:ZXingBarcodeImageView.BarcodeOptions>
+            </zx:ZXingBarcodeImageView>
             <Entry Text="URL" IsReadOnly="True" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage>

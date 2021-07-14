@@ -47,6 +47,7 @@ namespace EazyTips.Pages
                     if(GetLoginDetails)
                     {
                         await DisplayAlert("Registration Failed", " Already have an account", "Ok");
+                        return;
                     }
 
                     RegistrationService registrationService = new RegistrationService();
