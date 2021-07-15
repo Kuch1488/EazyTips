@@ -38,7 +38,7 @@ namespace EazyTips.Pages
             else
             {
                 string _phone = Convert.ToString(SignUpPhone.Text);
-                string _password = SignUpPassword.Text;
+                string _password = Convert.ToString(SignUpPassword.Text);
                 if (!User.isPhoneValid(_phone))
                 {
                     await DisplayAlert("Enter Data", "Enter correct phone number", "OK");
@@ -46,8 +46,8 @@ namespace EazyTips.Pages
                 }
                 LoginService service = new LoginService();
                 int GetUserId = -1;
-                GetUserId = await service.CheckLoginIfExists(_phone, _password);
-                if (GetUserId == -1)
+                GetUserId = Convert.ToInt32(await service.CheckLoginIfExists(_phone, _password));
+                if (GetUserId != -1)
                 {
                     await DisplayAlert("Registration Failed", " Already have an account", "OK");
                     return;

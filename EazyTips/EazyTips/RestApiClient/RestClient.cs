@@ -23,10 +23,15 @@ namespace EazyTips.RestClient
                 phone = _phone,
                 password = _password
             };
+            int id = -1;
             string jsonData = JsonConvert.SerializeObject(JsonData);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(Url, content);
-            int id = Convert.ToInt32(await response.Content.ReadAsStringAsync());
+            if(!response.IsSuccessStatusCode)
+            {
+                return id;
+            }
+            id = Convert.ToInt32(await response.Content.ReadAsStringAsync());
             return id;
         }
 
