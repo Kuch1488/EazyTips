@@ -13,17 +13,19 @@ namespace EazyTips.Pages
     public partial class HomePage : TabbedPage
     {
         public User User { get; set; }
-        public HomePage(User user)
+        public int Id { get; set; }
+        public HomePage(User user, int id)
         {
             InitializeComponent();
            
             NavigationPage.SetHasNavigationBar(this.Home, false);
             User = user;
+            Id = id;
         }
 
         protected override void OnAppearing()
         {
-            UserQrCode.BarcodeValue = $"http://0ceccd8d7b41.ngrok.io/api/user/{User.Id}";
+            UserQrCode.BarcodeValue = $"https://eazytips.ml/pay/{Id}";
             if(User.Name != null)
             {
                 UserName.Text = User.Name;

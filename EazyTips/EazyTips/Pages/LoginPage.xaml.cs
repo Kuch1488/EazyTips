@@ -30,7 +30,7 @@ namespace EazyTips.Pages
                     if (GetUserId != -1)
                     {
                         User user = await GetUserData(GetUserId);
-                        await Navigation.PushAsync(new HomePage(user));
+                        await Navigation.PushAsync(new HomePage(user, GetUserId));
                     }
                     else
                     {

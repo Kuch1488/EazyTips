@@ -2,7 +2,6 @@
 using EazyTips.Repository;
 using Newtonsoft.Json;
 using System;
-using System.Dynamic;
 using System.IO;
 using System.Net.Http;
 using System.Text;
@@ -12,7 +11,7 @@ namespace EazyTips.RestClient
 {
     public class RestClient<T>
     {
-        private string Url = "http://9a408c439104.ngrok.io";
+        private string Url = "https://fec9f0077efa.ngrok.io";
 
         public async Task<int> checkLogin(string _phone, string _password)
         {
@@ -52,108 +51,60 @@ namespace EazyTips.RestClient
         {
             Url += $"/api/user/{idUser}";
             HttpClient client = new HttpClient();
-
+            User user = null;
             HttpResponseMessage respnse = await client.GetAsync(Url);
 
-            if(respnse.Content is object && respnse.Content.Headers.ContentType.MediaType == "application/json")
+            if(respnse.IsSuccessStatusCode)
             {
-                string contentStream = await respnse.Content.ReadAsStringAsync();
-                StreamReader streamReader = new StreamReader(contentStream);
-                JsonTextReader textReader = new JsonTextReader(streamReader);
-                JsonSerializer jsonSerializer = new JsonSerializer();
-
-                try
-                {
-                    return jsonSerializer.Deserialize<User>(textReader);
-                }
-                catch (JsonReaderException)
-                {
-                    throw;
-                }
+                user = await respnse.Content.ReadAsAsync<User>();
             }
 
-            return null;
+            return user;
         }
 
         public async Task<Card> GetCard(int UserId)
         {
             Url += $"/api/card/{UserId}";
             HttpClient client = new HttpClient();
-
+            Card card = null;
             HttpResponseMessage respnse = await client.GetAsync(Url);
 
-            if (respnse.Content is object && respnse.Content.Headers.ContentType.MediaType == "application/json")
+            if (respnse.IsSuccessStatusCode)
             {
-                string contentStream = await respnse.Content.ReadAsStringAsync();
-                StreamReader streamReader = new StreamReader(contentStream);
-                JsonTextReader textReader = new JsonTextReader(streamReader);
-                JsonSerializer jsonSerializer = new JsonSerializer();
-
-                try
-                {
-                    return jsonSerializer.Deserialize<Card>(textReader);
-                }
-                catch (JsonReaderException)
-                {
-                    throw;
-                }
+                card = await respnse.Content.ReadAsAsync<Card>();
             }
 
-            return null;
+            return card;
         }
 
         public async Task<Marketplace> GetMarketplace(int UserId)
         {
             Url += $"/api/marketplace/{UserId}";
             HttpClient client = new HttpClient();
-
+            Marketplace marketplace = null;
             HttpResponseMessage respnse = await client.GetAsync(Url);
 
-            if (respnse.Content is object && respnse.Content.Headers.ContentType.MediaType == "application/json")
+            if (respnse.IsSuccessStatusCode)
             {
-                string contentStream = await respnse.Content.ReadAsStringAsync();
-                StreamReader streamReader = new StreamReader(contentStream);
-                JsonTextReader textReader = new JsonTextReader(streamReader);
-                JsonSerializer jsonSerializer = new JsonSerializer();
-
-                try
-                {
-                    return jsonSerializer.Deserialize<Marketplace>(textReader);
-                }
-                catch (JsonReaderException)
-                {
-                    throw;
-                }
+                marketplace = await respnse.Content.ReadAsAsync<Marketplace>();
             }
 
-            return null;
+            return marketplace;
         }
 
         public async Task<Transaction> GetTransaction(int UserId)
         {
             Url += $"/api/transaction/{UserId}";
             HttpClient client = new HttpClient();
-
+            Transaction transaction = null;
             HttpResponseMessage respnse = await client.GetAsync(Url);
 
-            if (respnse.Content is object && respnse.Content.Headers.ContentType.MediaType == "application/json")
+            if (respnse.IsSuccessStatusCode)
             {
-                string contentStream = await respnse.Content.ReadAsStringAsync();
-                StreamReader streamReader = new StreamReader(contentStream);
-                JsonTextReader textReader = new JsonTextReader(streamReader);
-                JsonSerializer jsonSerializer = new JsonSerializer();
-
-                try
-                {
-                    return jsonSerializer.Deserialize<Transaction>(textReader);
-                }
-                catch (JsonReaderException)
-                {
-                    throw;
-                }
+                transaction = await respnse.Content.ReadAsAsync<Transaction>();
             }
 
-            return null;
+            return transaction;
         }
     }
 }
