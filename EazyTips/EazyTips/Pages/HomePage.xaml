@@ -16,7 +16,7 @@
                     <zxcm:EncodingOptions Width="150" Height="150"/>
                 </zx:ZXingBarcodeImageView.BarcodeOptions>
             </zx:ZXingBarcodeImageView>
-            <Entry Text="URL" IsReadOnly="True" HorizontalOptions="Center"/>
+            <Entry x:Name="UserUrl" Text="URL" IsReadOnly="True" HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage>
     <ContentPage Title="Баланс">

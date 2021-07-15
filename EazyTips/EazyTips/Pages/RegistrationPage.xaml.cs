@@ -37,9 +37,9 @@ namespace EazyTips.Pages
             }
             else
             {
-                string _phone = SignUpPhone.Text.ToString();
+                string _phone = Convert.ToString(SignUpPhone.Text);
                 string _password = SignUpPassword.Text;
-                if (User.isPhoneValid(_phone))
+                if (!User.isPhoneValid(_phone))
                 {
                     await DisplayAlert("Enter Data", "Enter correct phone number", "OK");
                     return;

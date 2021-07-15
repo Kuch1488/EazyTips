@@ -6,7 +6,7 @@
         <AbsoluteLayout Margin="5,0,5,5">
             <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                         Margin="30,0,30,0">
-                <Entry x:Name="SignUpPhone" Placeholder="Phone" ReturnType="Next" Keyboard="Telephone" 
+                <Entry x:Name="SignUpPhone" Text="7" Placeholder="Phone" ReturnType="Next" Keyboard="Telephone" 
                        FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
                        TextColor="Black" MaxLength="11"/>
                 <Entry x:Name="SignUpPassword" ReturnType="Next" Placeholder="Password" IsPassword="True" 

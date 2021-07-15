@@ -25,6 +25,7 @@ namespace EazyTips.Pages
 
         protected override void OnAppearing()
         {
+            UserUrl.Text = $"https://eazytips.ml/pay/{Id}";
             UserQrCode.BarcodeValue = $"https://eazytips.ml/pay/{Id}";
             if(User.Name != null)
             {
