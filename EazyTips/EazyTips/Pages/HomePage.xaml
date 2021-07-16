@@ -38,12 +38,7 @@
                         <Label Text="VISA" FontSize="Subtitle" TextColor="White" FontAttributes="Bold"/>
                         <Label Text="Balance" FontSize="Small" FontAttributes="Bold" TextColor="White"/>
                         <Label x:Name="Balence" Text="" TextColor="White" FontSize="Small" FontAttributes="Bold"/>
-                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="0">
-                                <Label x:Name="CardNumber" Text="" FontAttributes="Bold" FontSize="Small" TextColor="White" 
-                                       Margin="10,0"/>
-                            </StackLayout>
-                        </StackLayout>
+                        <Label x:Name="CardNumber" Text="" FontAttributes="Bold" FontSize="Small" TextColor="White" Margin="10,0"/>
                         <Label x:Name="ValidThru" Text="" TextColor="White" FontSize="Small"/>
                     </StackLayout>
                 </Frame>
@@ -64,11 +59,17 @@
         <ScrollView>
             <StackLayout>
                 <Frame BackgroundColor="#cc5ce6">
-                    <Label Text="Name" TextColor="White" FontAttributes="Bold" FontSize="Medium" 
-                           HorizontalOptions="Center"/>
+                    <StackLayout>
+                        <Image/>
+                        <Label x:Name="ProfelName" Text="User" TextColor="Black" FontSize="Medium" FontAttributes="Bold" 
+                               HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
                 </Frame>
                 <Frame BackgroundColor="White">
-                    <Button Text="Exit" Clicked="Exit_ButtonClicked" TextColor="Black" FontSize="Medium" HorizontalOptions="CenterAndExpand"/>
+                    <StackLayout>
+                        <Button x:Name="ChangeData" Text="My data" Clicked="ChangeData_Clicked" HorizontalOptions="CenterAndExpand"/>
+                        <Button x:Name="Exit" Text="Exit" Clicked="Exit_ButtonClicked" HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
                 </Frame>
             </StackLayout>
         </ScrollView>

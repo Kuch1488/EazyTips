@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EazyTips.Pages.UserEdiit"
+             x:Name="UserData">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="5, 5, 5, 5">
+                <Label Text="My data" VerticalOptions="Start" HorizontalOptions="Start" />
+                <Button Text="Edit" Clicked="Edit_Clicked" HorizontalOptions="End"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Margin="5, 5, 5, 5">
+                <Label Text="Name" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="StartAndExpand"/>
+                <Entry x:Name="ProfelName" Placeholder="Name" HorizontalOptions="StartAndExpand"/>
+                <Label Text="Full name" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="StartAndExpand"/>
+                <Entry x:Name="FullName" Placeholder="Name" HorizontalOptions="StartAndExpand"/>
+                <Label Text="Email" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="StartAndExpand"/>
+                <Entry x:Name="UserEmail" Placeholder="Name" HorizontalOptions="StartAndExpand"/>
+                <Label Text="Phone" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="StartAndExpand"/>
+                <Entry x:Name="UserPhone" Placeholder="Name" HorizontalOptions="StartAndExpand"/>
+                <Button x:Name="Save" Text="Save" Clicked="Save_Button" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
