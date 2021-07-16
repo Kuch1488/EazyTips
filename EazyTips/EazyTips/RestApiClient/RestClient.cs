@@ -2,7 +2,7 @@
 using EazyTips.Repository;
 using Newtonsoft.Json;
 using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ namespace EazyTips.RestClient
 {
     public class RestClient<T>
     {
-        private string Url = "https://fec9f0077efa.ngrok.io";
+        private string Url = "https://cafbb8aabcba.ngrok.io";
 
         public async Task<int> checkLogin(string _phone, string _password)
         {
@@ -32,6 +32,7 @@ namespace EazyTips.RestClient
                 return id;
             }
             id = Convert.ToInt32(await response.Content.ReadAsStringAsync());
+
             return id;
         }
 
@@ -48,7 +49,7 @@ namespace EazyTips.RestClient
             string jsonData = JsonConvert.SerializeObject(JsonData);
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PostAsync(Url, content);
-            
+
             return response.IsSuccessStatusCode;
         }
 
@@ -67,19 +68,19 @@ namespace EazyTips.RestClient
             return user;
         }
 
-        public async Task<Card> GetCard(int UserId)
+        public async Task<List<Card>> GetCards(int UserId)
         {
             Url += $"/api/card/{UserId}";
             HttpClient client = new HttpClient();
-            Card card = null;
+            List<Card> cards = new List<Card>();
             HttpResponseMessage respnse = await client.GetAsync(Url);
 
             if (respnse.IsSuccessStatusCode)
             {
-                card = await respnse.Content.ReadAsAsync<Card>();
+                cards = await respnse.Content.ReadAsAsync<List<Card>>();
             }
 
-            return card;
+            return cards;
         }
 
         public async Task<Marketplace> GetMarketplace(int UserId)

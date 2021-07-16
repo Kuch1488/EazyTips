@@ -2,28 +2,50 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
-            xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+            xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable" 
+            xmlns:pages="clr-namespace:EazyTips.Pages" x:DataType="pages:HomePage"
             x:Class="EazyTips.Pages.HomePage"
             x:Name="Home">
   <!--Pages can be added as references or inline-->
     <ContentPage Title="Мой код">
         <StackLayout>
             <Image HorizontalOptions="Center"/>
-            <Label x:Name="UserName" Text="Name" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label x:Name="UserName" Text="User" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
             <zx:ZXingBarcodeImageView x:Name="UserQrCode" IsVisible="true" BarcodeFormat="QR_CODE" BarcodeValue="" 
                                       HorizontalOptions="Center" HeightRequest="150" WidthRequest="150">
                 <zx:ZXingBarcodeImageView.BarcodeOptions>
                     <zxcm:EncodingOptions Width="150" Height="150"/>
                 </zx:ZXingBarcodeImageView.BarcodeOptions>
             </zx:ZXingBarcodeImageView>
-            <Entry x:Name="UserUrl" Text="URL" IsReadOnly="True" HorizontalOptions="Center"/>
+            <Label HorizontalOptions="CenterAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span x:Name="UserUrl" Text="" TextColor="Blue" TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer x:Name="Url" Command="{Binding ClickCommand}" CommandParameter=""/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </StackLayout>
     </ContentPage>
     <ContentPage Title="Баланс">
         <ScrollView>
             <StackLayout>
-                <Frame BackgroundColor="#cc5ce6">
-                    <Image HorizontalOptions="Center"/>
+                <Frame BackgroundColor="#2B6B9F" Margin="20" CornerRadius="20" WidthRequest="250" HeightRequest="150">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="VISA" FontSize="Subtitle" TextColor="White" FontAttributes="Bold"/>
+                        <Label Text="Balance" FontSize="Small" FontAttributes="Bold" TextColor="White"/>
+                        <Label x:Name="Balence" Text="" TextColor="White" FontSize="Small" FontAttributes="Bold"/>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" Margin="0">
+                                <Label x:Name="CardNumber" Text="" FontAttributes="Bold" FontSize="Small" TextColor="White" 
+                                       Margin="10,0"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <Label x:Name="ValidThru" Text="" TextColor="White" FontSize="Small"/>
+                    </StackLayout>
                 </Frame>
                 <Frame BackgroundColor="White">
                     <Label Text="Transaction" FontSize="Medium"/>
