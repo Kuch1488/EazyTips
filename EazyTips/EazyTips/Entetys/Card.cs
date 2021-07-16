@@ -15,7 +15,7 @@ namespace EazyTips.Entetys
         [JsonProperty("balance")]
         public decimal Balance { get; set; }
         [JsonProperty("valid")]
-        public DateTime Valid { get; set; }
+        public string Valid { get; set; }
         [JsonProperty("userId")]
         public int UserId { get; set; }
         [JsonProperty("cvv")]

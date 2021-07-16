@@ -45,7 +45,7 @@ namespace EazyTips.Pages
             foreach (Card card in cards)
             {
                 CardNumber.Text = card.Number;
-                ValidThru.Text = Convert.ToString(card.Valid);
+                ValidThru.Text = Convert.ToDateTime(card.Valid).ToString("MM/yy");
                 if (card.Virtual == 1)
                 {
                     Balence.Text = Convert.ToString(card.Balance);
@@ -68,5 +68,10 @@ namespace EazyTips.Pages
         }
 
         public ICommand ClickCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
+
+        private async void ChangeData_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserEdiit());
+        }
     }
 }

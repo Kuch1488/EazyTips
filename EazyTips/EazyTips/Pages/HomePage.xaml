@@ -38,7 +38,7 @@
                         <Label Text="VISA" FontSize="Subtitle" TextColor="White" FontAttributes="Bold"/>
                         <Label Text="Balance" FontSize="Small" FontAttributes="Bold" TextColor="White"/>
                         <Label x:Name="Balence" Text="" TextColor="White" FontSize="Small" FontAttributes="Bold"/>
-                        <Label x:Name="CardNumber" Text="" FontAttributes="Bold" FontSize="Small" TextColor="White" Margin="10,0"/>
+                        <Label x:Name="CardNumber" Text="" FontAttributes="Bold" FontSize="Small" TextColor="White"/>
                         <Label x:Name="ValidThru" Text="" TextColor="White" FontSize="Small"/>
                     </StackLayout>
                 </Frame>

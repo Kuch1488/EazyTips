@@ -73,11 +73,11 @@ namespace EazyTips.RestClient
             Url += $"/api/card/{UserId}";
             HttpClient client = new HttpClient();
             List<Card> cards = new List<Card>();
-            HttpResponseMessage respnse = await client.GetAsync(Url);
+            string respnse = await client.GetStringAsync(Url);
 
-            if (respnse.IsSuccessStatusCode)
+            if (respnse != null)
             {
-                cards = await respnse.Content.ReadAsAsync<List<Card>>();
+                cards = JsonConvert.DeserializeObject<List<Card>>(respnse);
             }
 
             return cards;
@@ -111,6 +111,29 @@ namespace EazyTips.RestClient
             }
 
             return transaction;
+        }
+
+        public async Task<User> EditUser(User user)
+        {
+            Url += $"api/user/edit";
+            HttpClient client = new HttpClient();
+            var JsonData = new
+            {
+                name = user.Name,
+                email = user.Email,
+                phone = user.Phone,
+                fullname = user.FullName
+            };
+            string jsonData = JsonConvert.SerializeObject(JsonData);
+            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync(Url, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                user = await response.Content.ReadAsAsync<User>();
+            }
+
+            return user;
         }
     }
 }

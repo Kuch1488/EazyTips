@@ -17,5 +17,15 @@ namespace EazyTips.Pages
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this.UserData, false);
         }
+
+        private void Edit_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Save_Button(object sender, EventArgs e)
+        {
+
+        }
     }
 }
