@@ -3,8 +3,6 @@ using EazyTips.Entetys;
 using EazyTips.Repository;
 using System;
 using System.Collections.Generic;
-using System.Net.Mail;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
@@ -16,43 +14,41 @@ namespace EazyTips.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : TabbedPage
     {
-        public User User { get; set; }
-        public int Id { get; set; }
+        public User user { get; set; }
         public List<Card> cards { get; set; }
-        public HomePage(User user, int id)
+        public HomePage(int ID)
         {
             InitializeComponent();
             BindingContext = this;
 
             NavigationPage.SetHasNavigationBar(this.Home, false);
-            User = user;
-            Id = id;
 
+            user = new User();
+            user = GetUserData(ID);
             cards = new List<Card>();
-            cards = GetCards(Id);
+            cards = GetCards(ID);
         }
 
         protected override void OnAppearing()
         {
-            UserUrl.Text = $"https://eazytips.ml/pay/{Id}";
-            Url.CommandParameter = $"https://eazytips.ml/pay/{Id}";
-            UserQrCode.BarcodeValue = $"https://eazytips.ml/pay/{Id}";
-            if(User.Name != null)
+            UserUrl.Text = $"https://eazytips.ml/pay/{user.Id}";
+            Url.CommandParameter = $"https://eazytips.ml/pay/{user.Id}";
+            UserQrCode.BarcodeValue = $"https://eazytips.ml/pay/{user.Id}";
+            if(user.Name != null)
             {
-                UserName.Text = User.Name;
+                UserName.Text = user.Name;
+                ProfelName.Text = user.Name;
             }
 
             foreach (Card card in cards)
             {
                 CardNumber.Text = card.Number;
-                ValidThru.Text = Convert.ToDateTime(card.Valid).ToString("MM/yy");
+                ValidThru.Text = Convert.ToDateTime(card.Valid).ToString("MM/yy").Replace('.', '/');
                 if (card.Virtual == 1)
                 {
                     Balence.Text = Convert.ToString(card.Balance);
                 }
             }
-            
-            
         }
 
         private async void Exit_ButtonClicked(object sender, EventArgs e)
@@ -67,11 +63,18 @@ namespace EazyTips.Pages
             return card.Result;
         }
 
+        private User GetUserData(int UserId)
+        {
+            UserService service = new UserService();
+            Task<User> user = Task.Run(async () => await service.GetUserAsync(UserId));
+            return user.Result;
+        }
+
         public ICommand ClickCommand => new Command<string>(async (url) => await Launcher.OpenAsync(url));
 
         private async void ChangeData_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UserEdiit());
+            await Navigation.PushAsync(new UserEdiit(user));
         }
     }
 }

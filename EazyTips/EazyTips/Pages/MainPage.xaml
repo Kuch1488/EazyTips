@@ -7,14 +7,14 @@
         <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                     Margin="30,0,30,0">
             <Label Text="EAZYTIPS" FontSize="Title" TextColor="Black" />
-            <Button x:Name="logIn" FontSize="Medium" BorderColor="Black" FlexLayout.AlignSelf="Stretch" 
-                    CornerRadius="5"  Clicked="LoginButton_Clicked" HorizontalOptions="CenterAndExpand" 
-                    Text="Login" TextColor="White" BackgroundColor="#e2a1ed"/>
+            <Button x:Name="logIn" FontSize="Medium" BorderColor="#DD5681" FlexLayout.AlignSelf="Stretch" 
+                    CornerRadius="14"  Clicked="LoginButton_Clicked" HorizontalOptions="CenterAndExpand" 
+                    Text="Login" TextColor="White" BackgroundColor="#DD5681" FontFamily="SF Pro Text"/>
             <Label Text="or" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" 
-                   FlexLayout.AlignSelf="Center"/>
-            <Button x:Name="signUp" FontSize="Medium" TextColor="White" BorderColor="Black" 
-                    BackgroundColor="#e2a1ed"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  
-                    Clicked="SignUp_Clicked" HorizontalOptions="CenterAndExpand" Text="Sign Up"/>
+                   FlexLayout.AlignSelf="Center" FontFamily="SF Pro Display"/>
+            <Button x:Name="signUp" FontSize="Medium" TextColor="White" BorderColor="#DD5681" 
+                    BackgroundColor="#DD5681"  CornerRadius="14" FlexLayout.AlignSelf="Stretch"  
+                    Clicked="SignUp_Clicked" HorizontalOptions="CenterAndExpand" Text="Sign Up" FontFamily="SF Pro Text"/>
             <Label Text=""/>
         </FlexLayout>
     </AbsoluteLayout>

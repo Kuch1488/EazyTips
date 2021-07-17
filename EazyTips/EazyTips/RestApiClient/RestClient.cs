@@ -11,7 +11,7 @@ namespace EazyTips.RestClient
 {
     public class RestClient<T>
     {
-        private string Url = "https://cafbb8aabcba.ngrok.io";
+        private string Url = "https://5189723f5bad.ngrok.io";
 
         public async Task<int> checkLogin(string _phone, string _password)
         {
@@ -58,11 +58,11 @@ namespace EazyTips.RestClient
             Url += $"/api/user/{idUser}";
             HttpClient client = new HttpClient();
             User user = null;
-            HttpResponseMessage respnse = await client.GetAsync(Url);
+            string respnse = await client.GetStringAsync(Url);
 
-            if(respnse.IsSuccessStatusCode)
+            if(respnse != null)
             {
-                user = await respnse.Content.ReadAsAsync<User>();
+                user = JsonConvert.DeserializeObject<User>(respnse);
             }
 
             return user;
@@ -88,11 +88,11 @@ namespace EazyTips.RestClient
             Url += $"/api/marketplace/{UserId}";
             HttpClient client = new HttpClient();
             Marketplace marketplace = null;
-            HttpResponseMessage respnse = await client.GetAsync(Url);
+            string respnse = await client.GetStringAsync(Url);
 
-            if (respnse.IsSuccessStatusCode)
+            if (respnse != null)
             {
-                marketplace = await respnse.Content.ReadAsAsync<Marketplace>();
+                marketplace = JsonConvert.DeserializeObject<Marketplace>(respnse);
             }
 
             return marketplace;
@@ -103,22 +103,24 @@ namespace EazyTips.RestClient
             Url += $"/api/transaction/{UserId}";
             HttpClient client = new HttpClient();
             Transaction transaction = null;
-            HttpResponseMessage respnse = await client.GetAsync(Url);
+            string respnse = await client.GetStringAsync(Url);
 
-            if (respnse.IsSuccessStatusCode)
+            if (respnse != null)
             {
-                transaction = await respnse.Content.ReadAsAsync<Transaction>();
+                transaction = JsonConvert.DeserializeObject<Transaction>(respnse);
             }
 
             return transaction;
         }
 
-        public async Task<User> EditUser(User user)
+        public async Task<bool> EditUser(User user)
         {
-            Url += $"api/user/edit";
+            Url += $"/api/user/edit";
             HttpClient client = new HttpClient();
+
             var JsonData = new
             {
+                id = user.Id,
                 name = user.Name,
                 email = user.Email,
                 phone = user.Phone,
@@ -128,12 +130,7 @@ namespace EazyTips.RestClient
             StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await client.PutAsync(Url, content);
 
-            if (response.IsSuccessStatusCode)
-            {
-                user = await response.Content.ReadAsAsync<User>();
-            }
-
-            return user;
+            return response.IsSuccessStatusCode;
         }
     }
 }

@@ -9,15 +9,15 @@
   <!--Pages can be added as references or inline-->
     <ContentPage Title="Мой код">
         <StackLayout>
-            <Image HorizontalOptions="Center"/>
-            <Label x:Name="UserName" Text="User" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label x:Name="UserName" Text="User" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"
+                   FontFamily="SF Pro Display"/>
             <zx:ZXingBarcodeImageView x:Name="UserQrCode" IsVisible="true" BarcodeFormat="QR_CODE" BarcodeValue="" 
-                                      HorizontalOptions="Center" HeightRequest="150" WidthRequest="150">
+                                      HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" BackgroundColor="White">
                 <zx:ZXingBarcodeImageView.BarcodeOptions>
                     <zxcm:EncodingOptions Width="150" Height="150"/>
                 </zx:ZXingBarcodeImageView.BarcodeOptions>
             </zx:ZXingBarcodeImageView>
-            <Label HorizontalOptions="CenterAndExpand">
+            <Label HorizontalOptions="CenterAndExpand" FontFamily="SF Pro Display">
                 <Label.FormattedText>
                     <FormattedString>
                         <Span x:Name="UserUrl" Text="" TextColor="Blue" TextDecorations="Underline">
@@ -35,15 +35,12 @@
             <StackLayout>
                 <Frame BackgroundColor="#2B6B9F" Margin="20" CornerRadius="20" WidthRequest="250" HeightRequest="150">
                     <StackLayout Orientation="Vertical">
-                        <Label Text="VISA" FontSize="Subtitle" TextColor="White" FontAttributes="Bold"/>
-                        <Label Text="Balance" FontSize="Small" FontAttributes="Bold" TextColor="White"/>
-                        <Label x:Name="Balence" Text="" TextColor="White" FontSize="Small" FontAttributes="Bold"/>
-                        <Label x:Name="CardNumber" Text="" FontAttributes="Bold" FontSize="Small" TextColor="White"/>
-                        <Label x:Name="ValidThru" Text="" TextColor="White" FontSize="Small"/>
+                        <Label Text="VISA" FontSize="Subtitle" TextColor="White" FontAttributes="Bold" FontFamily="SF Pro Display"/>
+                        <Label Text="Balance" FontSize="Small" FontAttributes="Bold" TextColor="White" FontFamily="SF Pro Display"/>
+                        <Label x:Name="Balence" Text="" TextColor="White" FontSize="Small" FontAttributes="Bold" FontFamily="SF Pro Display"/>
+                        <Label x:Name="CardNumber" Text="" FontAttributes="Bold" FontSize="Small" TextColor="White" FontFamily="SF Pro Display"/>
+                        <Label x:Name="ValidThru" Text="" TextColor="White" FontSize="Small" FontFamily="SF Pro Display"/>
                     </StackLayout>
-                </Frame>
-                <Frame BackgroundColor="White">
-                    <Label Text="Transaction" FontSize="Medium"/>
                 </Frame>
             </StackLayout>
         </ScrollView>
@@ -58,17 +55,20 @@
     <ContentPage Title="Профель">
         <ScrollView>
             <StackLayout>
-                <Frame BackgroundColor="#cc5ce6">
+                <Frame BackgroundColor="#DD5681">
                     <StackLayout>
-                        <Image/>
                         <Label x:Name="ProfelName" Text="User" TextColor="Black" FontSize="Medium" FontAttributes="Bold" 
-                               HorizontalOptions="CenterAndExpand"/>
+                               HorizontalOptions="CenterAndExpand" FontFamily="SF Pro Display"/>
                     </StackLayout>
                 </Frame>
                 <Frame BackgroundColor="White">
                     <StackLayout>
-                        <Button x:Name="ChangeData" Text="My data" Clicked="ChangeData_Clicked" HorizontalOptions="CenterAndExpand"/>
-                        <Button x:Name="Exit" Text="Exit" Clicked="Exit_ButtonClicked" HorizontalOptions="CenterAndExpand"/>
+                        <Button x:Name="ChangeData" Text="My data" Clicked="ChangeData_Clicked"  HorizontalOptions="CenterAndExpand" 
+                                FontSize="Medium" TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" 
+                                FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
+                        <Button x:Name="Exit" Text="Exit" Clicked="Exit_ButtonClicked"  HorizontalOptions="CenterAndExpand" 
+                                FontSize="Medium" TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" 
+                                FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

@@ -13,7 +13,7 @@ namespace EazyTips.Pages
         public LoginPage()
         {
             InitializeComponent();
-            
+
             FocuseNext();
         }
 
@@ -29,8 +29,7 @@ namespace EazyTips.Pages
                     GetUserId = await loginService.CheckLoginIfExists(LoginPhone.Text.ToString(), LoginPassword.Text);
                     if (GetUserId != -1)
                     {
-                        User user = await GetUserData(GetUserId);
-                        await Navigation.PushAsync(new HomePage(user, GetUserId));
+                        await Navigation.PushAsync(new HomePage(GetUserId));
                     }
                     else
                     {
@@ -51,13 +50,6 @@ namespace EazyTips.Pages
         private void FocuseNext()
         {
             LoginPhone.ReturnCommand = new Command(() => LoginPassword.Focus());
-        }
-
-        private async Task<User> GetUserData(int GetUserId)
-        {
-            UserService service = new UserService();
-            User user = await service.GetUserAsync(GetUserId);
-            return user;
         }
     }
 }

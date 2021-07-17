@@ -13,5 +13,11 @@ namespace EazyTips.Client
             User user = await restClient.GetUser(id);
             return user;
         }
+
+        public async Task<bool> EditUser(User user)
+        {
+            bool EditSuccess = await restClient.EditUser(user);
+            return EditSuccess;
+        }
     }
 }
