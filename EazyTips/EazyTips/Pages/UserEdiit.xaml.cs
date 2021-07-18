@@ -24,9 +24,7 @@ namespace EazyTips.Pages
 
         protected override void OnAppearing()
         {
-            ProfelName.Text = user.Name;
-            FullName.Text = user.FullName;
-            UserEmail.Text = user.Email;
+            SetDefaultValue();
             UserPhone.Text = user.Phone;
         }
 
@@ -42,7 +40,6 @@ namespace EazyTips.Pages
             user.Name = ProfelName.Text;
             user.FullName = FullName.Text;
             user.Email = UserEmail.Text;
-            user.Phone = UserPhone.Text;
 
             if (!string.IsNullOrEmpty(user.Email))
             {
@@ -77,6 +74,19 @@ namespace EazyTips.Pages
         {
             ProfelName.ReturnCommand = new Command(() => FullName.Focus());
             FullName.ReturnCommand = new Command(() => UserEmail.Focus());
+        }
+
+        private void Cancel_Button(object sender, EventArgs e)
+        {
+            SetDefaultValue();
+            EntryEnabled(false);
+        }
+
+        private void SetDefaultValue()
+        {
+            ProfelName.Text = user.Name;
+            FullName.Text = user.FullName;
+            UserEmail.Text = user.Email;
         }
     }
 }
