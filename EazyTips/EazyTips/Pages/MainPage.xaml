@@ -6,7 +6,7 @@
     <AbsoluteLayout>
         <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                     Margin="0,0,0,0">
-            <Frame BackgroundColor="#DD5681" CornerRadius="14" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+            <Frame BackgroundColor="#DD5681" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
                 <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                     Margin="0,0,0,0">
                     <Label Text="EAZYTIPS" FontSize="Title" TextColor="White" />

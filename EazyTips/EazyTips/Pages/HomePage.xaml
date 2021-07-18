@@ -38,7 +38,7 @@
                         Margin="0,0,0,0">
                 <Frame BackgroundColor="#DD5681">
                     <StackLayout>
-                        <Frame BackgroundColor="#2B6B9F" Margin="20" CornerRadius="20" WidthRequest="250" HeightRequest="150">
+                        <Frame BackgroundColor="#2B6B9F" Margin="20" CornerRadius="20" WidthRequest="230" HeightRequest="130">
                             <StackLayout Orientation="Vertical">
                                 <Label Text="VISA" FontSize="Subtitle" TextColor="White" FontAttributes="Bold" FontFamily="SF Pro Display"/>
                                 <Label Text="Balance" FontSize="Small" FontAttributes="Bold" TextColor="White" FontFamily="SF Pro Display"/>
@@ -49,7 +49,7 @@
                         </Frame>
                         <Button x:Name="Withdraw" Text="Withdraw" HorizontalOptions="CenterAndExpand" Margin="5, 5, 5, 5"
                                 BackgroundColor="Transparent" BorderColor="Black" TextColor="White" CornerRadius="14" 
-                                FontSize="Medium" FontFamily="SF Pro Display"/>
+                                FontSize="Medium" FontFamily="SF Pro Display" BorderWidth="1"/>
                     </StackLayout>
                 </Frame>
                 <Frame BackgroundColor="Transparent" Margin="5, 5, 5, 5">
