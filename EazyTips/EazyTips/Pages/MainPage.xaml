@@ -5,17 +5,27 @@
              x:Name="FirstPage">
     <AbsoluteLayout>
         <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
-                    Margin="30,0,30,0">
-            <Label Text="EAZYTIPS" FontSize="Title" TextColor="Black" />
-            <Button x:Name="logIn" FontSize="Medium" BorderColor="#DD5681" FlexLayout.AlignSelf="Stretch" 
+                    Margin="0,0,0,0">
+            <Frame BackgroundColor="#DD5681" CornerRadius="14" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
+                    Margin="0,0,0,0">
+                    <Label Text="EAZYTIPS" FontSize="Title" TextColor="White" />
+                </FlexLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent">
+                <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
+                    Margin="0,0,0,0">
+                    <Button x:Name="logIn" FontSize="Medium" BorderColor="#DD5681" FlexLayout.AlignSelf="Stretch" 
                     CornerRadius="14"  Clicked="LoginButton_Clicked" HorizontalOptions="CenterAndExpand" 
                     Text="Login" TextColor="White" BackgroundColor="#DD5681" FontFamily="SF Pro Text"/>
-            <Label Text="or" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" 
+                    <Label Text="Don't have an account yet?" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" 
                    FlexLayout.AlignSelf="Center" FontFamily="SF Pro Display"/>
-            <Button x:Name="signUp" FontSize="Medium" TextColor="White" BorderColor="#DD5681" 
+                    <Button x:Name="signUp" FontSize="Medium" TextColor="White" BorderColor="#DD5681" 
                     BackgroundColor="#DD5681"  CornerRadius="14" FlexLayout.AlignSelf="Stretch"  
                     Clicked="SignUp_Clicked" HorizontalOptions="CenterAndExpand" Text="Sign Up" FontFamily="SF Pro Text"/>
-            <Label Text=""/>
+                    <Label Text=""/>
+                </FlexLayout>
+            </Frame>
         </FlexLayout>
     </AbsoluteLayout>
 </ContentPage>

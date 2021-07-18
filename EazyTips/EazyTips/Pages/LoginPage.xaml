@@ -13,7 +13,7 @@
                            TextColor="Black" MaxLength="11" FontFamily="SF Pro Display"/>
                     <Entry x:Name="LoginPassword" ReturnType="Done" IsPassword="True" Placeholder="Password" 
                            FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
-                           TextColor="Black" MaxLength="40" FontFamily="SF Pro Display"/>
+                           TextColor="Black" MaxLength="55" FontFamily="SF Pro Display"/>
                     <Button x:Name="signIn" Clicked="LoginValidation_ButtonClicked" FontSize="Medium" 
                             TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681"  
                             CornerRadius="14" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" 

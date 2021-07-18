@@ -14,6 +14,9 @@ namespace EazyTips.Pages
         {
             InitializeComponent();
 
+            NavigationPage page = App.Current.MainPage as NavigationPage;
+            page.BarBackgroundColor = Color.FromHex("#DD5681");
+
             FocuseNext();
         }
 

@@ -4,7 +4,8 @@
              x:Class="EazyTips.Pages.UserEdiit"
              x:Name="UserData">
     <ContentPage.Content>
-        <StackLayout>
+        <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column"  
+                        Margin="0,0,0,0">
             <StackLayout Orientation="Horizontal" Margin="5, 5, 5, 5">
                 <Label Text="My data" TextColor="Black" FontAttributes="Bold" FontSize="Title" VerticalOptions="StartAndExpand" 
                        HorizontalOptions="StartAndExpand" FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
@@ -12,7 +13,8 @@
                         BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" FlexLayout.AlignSelf="Stretch"
                         FontFamily="SF Pro Display"/>
             </StackLayout>
-            <StackLayout Orientation="Vertical" Margin="5, 5, 5, 5">
+            <StackLayout IsVisible="True" Orientation="Vertical" 
+                        Margin="5, 5, 5, 5">
                 <Label Text="Name" FontSize="Medium" FontAttributes="Bold" TextColor="Black" HorizontalOptions="StartAndExpand"
                        FontFamily="SF Pro Display"/>
                 <Entry x:Name="ProfelName" Placeholder="Name" HorizontalOptions="StartAndExpand" IsEnabled="False" 
@@ -33,6 +35,6 @@
                         TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" 
                         FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
             </StackLayout>
-        </StackLayout>
+        </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -2,13 +2,15 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
-            xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable" 
+            xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
             xmlns:pages="clr-namespace:EazyTips.Pages" x:DataType="pages:HomePage"
+            BarBackgroundColor ="#DD5681"
             x:Class="EazyTips.Pages.HomePage"
             x:Name="Home">
   <!--Pages can be added as references or inline-->
-    <ContentPage Title="Мой код">
-        <StackLayout>
+    <ContentPage Title="Код">
+        <FlexLayout IsVisible="True" Direction="Column" AlignItems="Center" 
+                    Margin="0,0,0,0">
             <Label x:Name="UserName" Text="User" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"
                    FontFamily="SF Pro Display"/>
             <zx:ZXingBarcodeImageView x:Name="UserQrCode" IsVisible="true" BarcodeFormat="QR_CODE" BarcodeValue="" 
@@ -28,21 +30,35 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-        </StackLayout>
+        </FlexLayout>
     </ContentPage>
     <ContentPage Title="Баланс">
         <ScrollView>
-            <StackLayout>
-                <Frame BackgroundColor="#2B6B9F" Margin="20" CornerRadius="20" WidthRequest="250" HeightRequest="150">
-                    <StackLayout Orientation="Vertical">
-                        <Label Text="VISA" FontSize="Subtitle" TextColor="White" FontAttributes="Bold" FontFamily="SF Pro Display"/>
-                        <Label Text="Balance" FontSize="Small" FontAttributes="Bold" TextColor="White" FontFamily="SF Pro Display"/>
-                        <Label x:Name="Balence" Text="" TextColor="White" FontSize="Small" FontAttributes="Bold" FontFamily="SF Pro Display"/>
-                        <Label x:Name="CardNumber" Text="" FontAttributes="Bold" FontSize="Small" TextColor="White" FontFamily="SF Pro Display"/>
-                        <Label x:Name="ValidThru" Text="" TextColor="White" FontSize="Small" FontFamily="SF Pro Display"/>
+            <FlexLayout IsVisible="True" Direction="Column" AlignItems="Center" 
+                        Margin="0,0,0,0">
+                <Frame BackgroundColor="#DD5681">
+                    <StackLayout>
+                        <Frame BackgroundColor="#2B6B9F" Margin="20" CornerRadius="20" WidthRequest="250" HeightRequest="150">
+                            <StackLayout Orientation="Vertical">
+                                <Label Text="VISA" FontSize="Subtitle" TextColor="White" FontAttributes="Bold" FontFamily="SF Pro Display"/>
+                                <Label Text="Balance" FontSize="Small" FontAttributes="Bold" TextColor="White" FontFamily="SF Pro Display"/>
+                                <Label x:Name="Balence" Text="" TextColor="White" FontSize="Small" FontAttributes="Bold" FontFamily="SF Pro Display"/>
+                                <Label x:Name="CardNumber" Text="" FontAttributes="Bold" FontSize="Small" TextColor="White" FontFamily="SF Pro Display"/>
+                                <Label x:Name="ValidThru" Text="" TextColor="White" FontSize="Small" FontFamily="SF Pro Display"/>
+                            </StackLayout>
+                        </Frame>
+                        <Button x:Name="Withdraw" Text="Withdraw" HorizontalOptions="CenterAndExpand" Margin="5, 5, 5, 5"
+                                BackgroundColor="Transparent" BorderColor="Black" TextColor="White" CornerRadius="14" 
+                                FontSize="Medium" FontFamily="SF Pro Display"/>
                     </StackLayout>
                 </Frame>
-            </StackLayout>
+                <Frame BackgroundColor="Transparent" Margin="5, 5, 5, 5">
+                    <StackLayout>
+                        <Label Text="Transaction" TextColor="Black" FontSize="Title" HorizontalOptions="StartAndExpand" 
+                               VerticalOptions="StartAndExpand"/>
+                    </StackLayout>
+                </Frame>
+            </FlexLayout>
         </ScrollView>
     </ContentPage>
     <ContentPage Title="Отзывы">
@@ -54,24 +70,27 @@
     </ContentPage>
     <ContentPage Title="Профель">
         <ScrollView>
-            <StackLayout>
+            <FlexLayout IsVisible="True" Direction="Column" AlignItems="Center" 
+                        Margin="0,0,0,0">
                 <Frame BackgroundColor="#DD5681">
-                    <StackLayout>
-                        <Label x:Name="ProfelName" Text="User" TextColor="Black" FontSize="Medium" FontAttributes="Bold" 
+                    <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
+                        Margin="0,0,0,0">
+                        <Label x:Name="ProfelName" Text="User" TextColor="White" FontSize="Medium" FontAttributes="Bold" 
                                HorizontalOptions="CenterAndExpand" FontFamily="SF Pro Display"/>
-                    </StackLayout>
+                    </FlexLayout>
                 </Frame>
-                <Frame BackgroundColor="White">
-                    <StackLayout>
+                <Frame BackgroundColor="Transparent">
+                    <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
+                        Margin="0,0,0,0">
                         <Button x:Name="ChangeData" Text="My data" Clicked="ChangeData_Clicked"  HorizontalOptions="CenterAndExpand" 
                                 FontSize="Medium" TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" 
                                 FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
                         <Button x:Name="Exit" Text="Exit" Clicked="Exit_ButtonClicked"  HorizontalOptions="CenterAndExpand" 
                                 FontSize="Medium" TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" 
                                 FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
-                    </StackLayout>
+                    </FlexLayout>
                 </Frame>
-            </StackLayout>
+            </FlexLayout>
         </ScrollView>
     </ContentPage>
 </TabbedPage>
