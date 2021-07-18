@@ -43,11 +43,14 @@ namespace EazyTips.Pages
             user.FullName = FullName.Text;
             user.Email = UserEmail.Text;
             user.Phone = UserPhone.Text;
-            
-            if (!User.isEmailValid(user.Email))
+
+            if (!string.IsNullOrEmpty(user.Email))
             {
-                await DisplayAlert("Wrong input", "Email is not valid", "OK");
-                return;
+                if (!User.isEmailValid(user.Email))
+                {
+                    await DisplayAlert("Wrong input", "Email is not valid", "OK");
+                    return;
+                }
             }
 
             bool EditSuccess = await service.EditUser(user);
