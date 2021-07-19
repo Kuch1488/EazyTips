@@ -49,13 +49,26 @@ namespace EazyTips.Pages
                     return;
                 }
             }
+            else
+            {
+                user.Email = null;
+            }
+
+            if (string.IsNullOrEmpty(user.Name))
+            {
+                user.Name = null;
+            }
+
+            if (string.IsNullOrEmpty(user.FullName))
+            {
+                user.FullName = null;
+            }
 
             bool EditSuccess = await service.EditUser(user);
 
             if (EditSuccess)
             {
                 await DisplayAlert("Edit", "Edit success", "OK");
-                EntryEnabled(false);
             }
             else
             {

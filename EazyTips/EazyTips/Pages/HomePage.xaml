@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
             xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
             xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
-            xmlns:pages="clr-namespace:EazyTips.Pages" x:DataType="pages:HomePage"
+            xmlns:pages="clr-namespace:EazyTips.Pages" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" x:DataType="pages:HomePage"
             BarBackgroundColor ="#B24592"
             x:Class="EazyTips.Pages.HomePage"
             x:Name="Home">
@@ -36,7 +36,11 @@
         <ScrollView>
             <FlexLayout IsVisible="True" Direction="Column" AlignItems="Center" 
                         Margin="0,0,0,0">
-                <Frame>
+                <yummy:PancakeView CornerRadius="0,0,40,40" Grid.Row="1">
+                    <yummy:PancakeView.Shadow>
+                        <yummy:DropShadow Color="Black" Offset="10,10"/>
+                    </yummy:PancakeView.Shadow>
+                    <Frame HasShadow="False">
                     <Frame.Background>
                         <LinearGradientBrush EndPoint="0,1">
                             <GradientStop Color="#B24592"
@@ -60,6 +64,7 @@
                                 FontSize="Medium" FontFamily="SF Pro Display" BorderWidth="1"/>
                     </StackLayout>
                 </Frame>
+                </yummy:PancakeView>
                 <Frame BackgroundColor="Transparent" Margin="5, 5, 5, 5">
                     <StackLayout>
                         <Label Text="Transaction" TextColor="Black" FontSize="Title" HorizontalOptions="StartAndExpand" 
@@ -80,21 +85,26 @@
         <ScrollView>
             <FlexLayout IsVisible="True" Direction="Column" AlignItems="Center" 
                         Margin="0,0,0,0">
-                <Frame>
-                    <Frame.Background>
-                        <LinearGradientBrush EndPoint="0,1">
-                            <GradientStop Color="#B24592"
-                          Offset="0.1" />
-                            <GradientStop Color="#F15F79"
-                          Offset="1.0" />
-                        </LinearGradientBrush>
-                    </Frame.Background>
-                    <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
-                        Margin="0,0,0,0">
-                        <Label x:Name="ProfelName" Text="User" TextColor="White" FontSize="Medium" FontAttributes="Bold" 
-                               HorizontalOptions="CenterAndExpand" FontFamily="SF Pro Display"/>
-                    </FlexLayout>
-                </Frame>
+                <yummy:PancakeView CornerRadius="0,0,30,30" Grid.Row="1">
+                    <yummy:PancakeView.Shadow>
+                        <yummy:DropShadow Color="Black" Offset="10,10"/>
+                    </yummy:PancakeView.Shadow>
+                    <Frame HasShadow="False">
+                        <Frame.Background>
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="#B24592"
+                                              Offset="0.1" />
+                                <GradientStop Color="#F15F79"
+                                              Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                        <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
+                                    Margin="0,0,0,0">
+                            <Label x:Name="ProfelName" Text="User" TextColor="White" FontSize="Medium" FontAttributes="Bold" 
+                                HorizontalOptions="CenterAndExpand" FontFamily="SF Pro Display"/>
+                        </FlexLayout>
+                    </Frame>
+                </yummy:PancakeView>
                 <Frame BackgroundColor="Transparent">
                     <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                         Margin="0,0,0,0">
