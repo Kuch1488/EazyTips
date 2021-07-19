@@ -18,7 +18,7 @@
                 <Label x:Name="warningLabel" Text="" IsVisible="False" TextColor="Red" FontSize="Small" 
                        BackgroundColor="Transparent" FlexLayout.AlignSelf="End" FontFamily="SF Pro Display"/>
                 <Button x:Name="signUp" Clicked="SignupValidation_ButtonClicked" FontSize="Medium" TextColor="White" 
-                        BorderColor="#DD5681" BackgroundColor="#DD5681"  CornerRadius="14" 
+                        BackgroundColor="#B24592"  CornerRadius="14" 
                         FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Sign Up" FontFamily="SF Pro Text"/>
                 <Button TextColor="Black" BackgroundColor="Transparent" Clicked="login_ClickedEvent" 
                         Text="Login" FontSize="Small" FlexLayout.AlignSelf="Start" FontFamily="SF Pro Text"/>

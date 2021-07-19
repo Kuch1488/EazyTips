@@ -10,7 +10,7 @@
                 <Label Text="My data" TextColor="Black" FontAttributes="Bold" FontSize="Title" VerticalOptions="StartAndExpand" 
                        HorizontalOptions="StartAndExpand" FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
                 <Button Text="Edit" Clicked="Edit_Clicked" HorizontalOptions="EndAndExpand" FontSize="Medium" TextColor="White" 
-                        BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" FlexLayout.AlignSelf="Stretch"
+                        BackgroundColor="#B24592" CornerRadius="14" FlexLayout.AlignSelf="Stretch"
                         FontFamily="SF Pro Display"/>
             </StackLayout>
             <StackLayout IsVisible="True" Orientation="Vertical" 
@@ -33,10 +33,10 @@
                        FlexLayout.AlignSelf="Stretch" WidthRequest="200" FontFamily="SF Pro Display"/>
                 <StackLayout Orientation="Horizontal">
                     <Button x:Name="Save" Text="Save" Clicked="Save_Button" HorizontalOptions="CenterAndExpand" FontSize="Medium" 
-                        TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" 
+                        TextColor="White" BackgroundColor="#B24592" CornerRadius="14" 
                         FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
                     <Button x:Name="Cancel" Text="Cancel" Clicked="Cancel_Button" HorizontalOptions="CenterAndExpand" FontSize="Medium" 
-                        TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" 
+                        TextColor="White" BackgroundColor="#B24592" CornerRadius="14" 
                         FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
                 </StackLayout>
             </StackLayout>

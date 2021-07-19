@@ -4,13 +4,13 @@
             xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
             xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
             xmlns:pages="clr-namespace:EazyTips.Pages" x:DataType="pages:HomePage"
-            BarBackgroundColor ="#DD5681"
+            BarBackgroundColor ="#B24592"
             x:Class="EazyTips.Pages.HomePage"
             x:Name="Home">
   <!--Pages can be added as references or inline-->
-    <ContentPage Title="Код">
-        <FlexLayout IsVisible="True" Direction="Column" AlignItems="Center" 
-                    Margin="0,0,0,0">
+    <ContentPage Title="My code">
+        <FlexLayout IsVisible="True" Direction="Column" AlignItems="Center" JustifyContent="SpaceEvenly" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                    Margin="0,0,0,0" BackgroundColor="#FFFFFF">
             <Label x:Name="UserName" Text="User" TextColor="Black" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"
                    FontFamily="SF Pro Display"/>
             <zx:ZXingBarcodeImageView x:Name="UserQrCode" IsVisible="true" BarcodeFormat="QR_CODE" BarcodeValue="" 
@@ -22,7 +22,7 @@
             <Label HorizontalOptions="CenterAndExpand" FontFamily="SF Pro Display">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span x:Name="UserUrl" Text="" TextColor="Blue" TextDecorations="Underline">
+                        <Span x:Name="UserUrl" Text="" TextColor="#C4C4C4" TextDecorations="Underline">
                             <Span.GestureRecognizers>
                                 <TapGestureRecognizer x:Name="Url" Command="{Binding ClickCommand}" CommandParameter=""/>
                             </Span.GestureRecognizers>
@@ -32,11 +32,19 @@
             </Label>
         </FlexLayout>
     </ContentPage>
-    <ContentPage Title="Баланс">
+    <ContentPage Title="Balance">
         <ScrollView>
             <FlexLayout IsVisible="True" Direction="Column" AlignItems="Center" 
                         Margin="0,0,0,0">
-                <Frame BackgroundColor="#DD5681">
+                <Frame>
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#B24592"
+                          Offset="0.1" />
+                            <GradientStop Color="#F15F79"
+                          Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
                     <StackLayout>
                         <Frame BackgroundColor="#2B6B9F" Margin="20" CornerRadius="20" WidthRequest="230" HeightRequest="130">
                             <StackLayout Orientation="Vertical">
@@ -61,18 +69,26 @@
             </FlexLayout>
         </ScrollView>
     </ContentPage>
-    <ContentPage Title="Отзывы">
+    <ContentPage Title="Reviews">
         <ScrollView>
             <StackLayout>
-                <Label Text="Отзывы" FontSize="Title"/>
+                <Label Text="Reviews" FontSize="Title"/>
             </StackLayout>
         </ScrollView>
     </ContentPage>
-    <ContentPage Title="Профель">
+    <ContentPage Title="Profile">
         <ScrollView>
             <FlexLayout IsVisible="True" Direction="Column" AlignItems="Center" 
                         Margin="0,0,0,0">
-                <Frame BackgroundColor="#DD5681">
+                <Frame>
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#B24592"
+                          Offset="0.1" />
+                            <GradientStop Color="#F15F79"
+                          Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
                     <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                         Margin="0,0,0,0">
                         <Label x:Name="ProfelName" Text="User" TextColor="White" FontSize="Medium" FontAttributes="Bold" 
@@ -83,10 +99,10 @@
                     <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                         Margin="0,0,0,0">
                         <Button x:Name="ChangeData" Text="My data" Clicked="ChangeData_Clicked"  HorizontalOptions="CenterAndExpand" 
-                                FontSize="Medium" TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" 
+                                FontSize="Medium" TextColor="White"  BackgroundColor="#B24592" CornerRadius="14" 
                                 FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
                         <Button x:Name="Exit" Text="Exit" Clicked="Exit_ButtonClicked"  HorizontalOptions="CenterAndExpand" 
-                                FontSize="Medium" TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681" CornerRadius="14" 
+                                FontSize="Medium" TextColor="White" BackgroundColor="#B24592" CornerRadius="14" 
                                 FlexLayout.AlignSelf="Stretch" FontFamily="SF Pro Display"/>
                     </FlexLayout>
                 </Frame>

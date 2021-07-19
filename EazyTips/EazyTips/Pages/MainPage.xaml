@@ -1,27 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="EazyTips.MainPage"
              x:Name="FirstPage">
     <AbsoluteLayout>
         <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                     Margin="0,0,0,0">
-            <Frame BackgroundColor="#DD5681" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
-                <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
+            <yummy:PancakeView CornerRadius="0,0,30,30" Grid.Row="1">
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow Color="Black" Offset="10,10"/>
+                </yummy:PancakeView.Shadow>
+                <Frame VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" HasShadow="False">
+                    <Frame.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#B24592"
+                          Offset="0.1" />
+                            <GradientStop Color="#F15F79"
+                          Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Frame.Background>
+                    <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                     Margin="0,0,0,0">
                     <Label Text="EAZYTIPS" FontSize="Title" TextColor="White" />
                 </FlexLayout>
             </Frame>
+            </yummy:PancakeView>
             <Frame BackgroundColor="Transparent">
                 <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" 
                     Margin="0,0,0,0">
-                    <Button x:Name="logIn" FontSize="Medium" BorderColor="#DD5681" FlexLayout.AlignSelf="Stretch" 
+                    <Button x:Name="logIn" FontSize="Medium" FlexLayout.AlignSelf="Stretch" 
                     CornerRadius="14"  Clicked="LoginButton_Clicked" HorizontalOptions="CenterAndExpand" 
-                    Text="Login" TextColor="White" BackgroundColor="#DD5681" FontFamily="SF Pro Text"/>
-                    <Label Text="Don't have an account yet?" FontSize="15" TextColor="DarkGray" BackgroundColor="Transparent" 
+                    Text="Login" TextColor="White" BackgroundColor="#B24592" FontFamily="SF Pro Text"/>
+                    <Label Text="Don't have an account yet?" FontSize="15" TextColor="#C4C4C4" BackgroundColor="Transparent" 
                    FlexLayout.AlignSelf="Center" FontFamily="SF Pro Display"/>
-                    <Button x:Name="signUp" FontSize="Medium" TextColor="White" BorderColor="#DD5681" 
-                    BackgroundColor="#DD5681"  CornerRadius="14" FlexLayout.AlignSelf="Stretch"  
+                    <Button x:Name="signUp" FontSize="Medium" TextColor="White" 
+                    BackgroundColor="#B24592"  CornerRadius="14" FlexLayout.AlignSelf="Stretch"  
                     Clicked="SignUp_Clicked" HorizontalOptions="CenterAndExpand" Text="Sign Up" FontFamily="SF Pro Text"/>
                     <Label Text=""/>
                 </FlexLayout>

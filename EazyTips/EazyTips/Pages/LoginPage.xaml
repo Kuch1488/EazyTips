@@ -15,7 +15,7 @@
                            FontSize="Small" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  
                            TextColor="Black" MaxLength="55" FontFamily="SF Pro Display"/>
                     <Button x:Name="signIn" Clicked="LoginValidation_ButtonClicked" FontSize="Medium" 
-                            TextColor="White" BorderColor="#DD5681" BackgroundColor="#DD5681"  
+                            TextColor="White" BorderColor="#B24592" BackgroundColor="#B24592"  
                             CornerRadius="14" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" 
                             Text="Login" FontFamily="SF Pro Display"/>
                 </FlexLayout>
