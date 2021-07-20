@@ -64,15 +64,22 @@ namespace EazyTips.Pages
                 user.FullName = null;
             }
 
-            bool EditSuccess = await service.EditUser(user);
+            try
+            {
+                bool EditSuccess = await service.EditUser(user);
 
-            if (EditSuccess)
-            {
-                await DisplayAlert("Edit", "Edit success", "OK");
+                if (EditSuccess)
+                {
+                    await DisplayAlert("Edit", "Edit success", "OK");
+                }
+                else
+                {
+                    await DisplayAlert("Edit error", "Something wrong", "OK");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                await DisplayAlert("Edit error", "Something wrong", "OK");
+                await DisplayAlert("Edit failed", ex.Message, "OK");
             }
         }
 

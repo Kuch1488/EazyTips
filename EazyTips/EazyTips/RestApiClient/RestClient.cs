@@ -11,7 +11,7 @@ namespace EazyTips.RestClient
 {
     public class RestClient<T>
     {
-        private string Url = "https://b8c9eec28cad.ngrok.io";
+        private string Url = "https://9a344381d9d1.ngrok.io";
 
         public async Task<int> checkLogin(string _phone, string _password)
         {

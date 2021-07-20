@@ -44,26 +44,35 @@ namespace EazyTips.Pages
                     await DisplayAlert("Enter Data", "Enter correct phone number", "OK");
                     return;
                 }
-                LoginService service = new LoginService();
-                int GetUserId = -1;
-                GetUserId = Convert.ToInt32(await service.CheckLoginIfExists(_phone, _password));
-                if (GetUserId != -1)
-                {
-                    await DisplayAlert("Registration Failed", " Already have an account", "OK");
-                    return;
-                }
 
-                RegistrationService registrationService = new RegistrationService();
-                bool RegistrationSuccess = await registrationService.RegistrationSuccess(_phone, _password);
-                if (RegistrationSuccess)
+                try
                 {
-                    await Navigation.PushAsync(new LoginPage());
+                    LoginService service = new LoginService();
+                    int GetUserId = -1;
+                    GetUserId = Convert.ToInt32(await service.CheckLoginIfExists(_phone, _password));
+                    if (GetUserId != -1)
+                    {
+                        await DisplayAlert("Registration Failed", " Already have an account", "OK");
+                        return;
+                    }
+
+                    RegistrationService registrationService = new RegistrationService();
+                    bool RegistrationSuccess = await registrationService.RegistrationSuccess(_phone, _password);
+                    if (RegistrationSuccess)
+                    {
+                        await Navigation.PushAsync(new LoginPage());
+                    }
+                    else
+                    {
+                        await DisplayAlert("Registration Failed", "Wrong input", "OK");
+                        return;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    await DisplayAlert("Registration Failed", "Connection lost", "OK");
-                    return;
+                    await DisplayAlert("Registration failed", ex.Message, "OK");
                 }
+                
             }
         }
 

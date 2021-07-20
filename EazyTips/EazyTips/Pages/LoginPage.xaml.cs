@@ -27,16 +27,23 @@ namespace EazyTips.Pages
                 string _phone = LoginPhone.Text.ToString();
                 if (User.isPhoneValid(_phone))
                 {
-                    LoginService loginService = new LoginService();
-                    int GetUserId = -1;
-                    GetUserId = await loginService.CheckLoginIfExists(LoginPhone.Text.ToString(), LoginPassword.Text);
-                    if (GetUserId != -1)
+                    try
                     {
-                        await Navigation.PushAsync(new HomePage(GetUserId));
+                        LoginService loginService = new LoginService();
+                        int GetUserId = -1;
+                        GetUserId = await loginService.CheckLoginIfExists(LoginPhone.Text.ToString(), LoginPassword.Text);
+                        if (GetUserId != -1)
+                        {
+                            await Navigation.PushAsync(new HomePage(GetUserId));
+                        }
+                        else
+                        {
+                            await DisplayAlert("Login failed", "Phone or Password is incorrect or not exists", "OK");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        await DisplayAlert("Login failed", "Phone or Password is incorrect or not exists", "OK");
+                        await DisplayAlert("Login failed", ex.Message, "OK");
                     }
                 }
                 else
